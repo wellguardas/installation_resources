@@ -16,7 +16,7 @@ SUB="usage: conda"
 if [[ "$f_output" == *"$SUB"* ]]; then
   echo 'Conda found'
 else
-  echo 'Conda not found, please install...'
+  echo 'Conda not found, please install. Can be done with script found in "utils" folder'
   exit 1
 fi
 
