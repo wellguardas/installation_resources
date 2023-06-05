@@ -16,15 +16,23 @@ SUB="usage: conda"
 if [[ "$f_output" == *"$SUB"* ]]; then
   echo 'Conda found'
 else
-  echo 'Conda not found, please install. Can be done with script found in "utils" folder'
-  exit 1
+  source $HOME/miniconda3/etc/profile.d/conda.sh
+  f_output_nested=$('conda')
+  if [[ "$f_output_nested" == *"$SUB"* ]]; then
+    echo 'Conda found'
+  else
+    echo 'Conda not found, please install. Can be done with script found in "utils" folder'
+    exit 1
+  fi
 fi
 
 
 #--------------------------------------------------------------------#
 # Ask for permission to install at %USERPROFILE%\WellGuardGUI\ folder
 #--------------------------------------------------------------------#
+installation_path="$HOME/WellGuardGUI/"
 $clear
+echo "Installing WoodPecker GUI (guiwoodpecker) at $installation_path (y/n)"
 read user_answer
 SUB="y"
 if [[ "$user_answer" == *"$SUB"* ]]; then
@@ -38,7 +46,6 @@ fi
 #--------------------------------------------------------------------#
 # Ensure that %USERPROFILE%\WellGuardGUI folder exists and set cwd
 #--------------------------------------------------------------------#
-installation_path="$HOME/WellGuardGUI/"
 [ ! -d "$installation_path" ] && mkdir -p "$installation_path"
 cd $installation_path
 
@@ -52,9 +59,10 @@ git clone "https://gitlab.com/WellGuard_AS/guiwoodpecker.git"
 #--------------------------------------------------------------------#
 # Create Conda environment
 #--------------------------------------------------------------------#
-project_path="$HOME/WellGuardGUI/guiwoodpecker/"
+project_path="$HOME/WellGuardGUI/guiwoodpecker/environment.yml"
+echo "Creating Conda environment from file: $project_path"
 cd project_path
-conda env create -f "environment.yml"
+conda env create -f $project_path
 
 
 #--------------------------------------------------------------------#
