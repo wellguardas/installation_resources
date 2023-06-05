@@ -5,10 +5,7 @@ This repo contains installation scripts for end users of WellGuard software.
 
 ## GUI Woodpecker Tool
 
-For linux:
-	curl -s https://gitlab.com/WellGuard_AS/installation_resources/guiwoodpecker.linux_installer.sh | bash /dev/stdin
-
-for windows:
+Clone the repo or copy the installation file of interest. Run the file on local computer.
 	
 
 #### License
