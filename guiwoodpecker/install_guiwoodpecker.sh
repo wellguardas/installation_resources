@@ -31,7 +31,7 @@ fi
 # Ask for permission to install at %USERPROFILE%\WellGuardGUI\ folder
 #--------------------------------------------------------------------#
 installation_path="$HOME/WellGuardGUI/"
-$clear
+clear
 echo "Installing WoodPecker GUI (guiwoodpecker) at $installation_path (y/n)"
 read user_answer
 SUB="y"
@@ -61,7 +61,6 @@ git clone "https://gitlab.com/WellGuard_AS/guiwoodpecker.git"
 #--------------------------------------------------------------------#
 project_path="$HOME/WellGuardGUI/guiwoodpecker/environment.yml"
 echo "Creating Conda environment from file: $project_path"
-cd project_path
 conda env create -f $project_path
 
 
