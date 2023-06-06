@@ -1,6 +1,13 @@
 #!/bin/bash
 
 #--------------------------------------------------------------------#
+# Copy ssh read key
+#--------------------------------------------------------------------#
+basedir=$(dirname "$0")
+cp $basedir/guiwoodpecker_read_key $HOME/.shh/guiwoodpecker_read_key
+
+
+#--------------------------------------------------------------------#
 # Ensure git and miniconda is installed
 #--------------------------------------------------------------------#
 f_output=$('git')
@@ -93,8 +100,3 @@ echo "Reinstalling wxbuild"
 pip uninstall wxbuild -y
 pip install "git+https://github.com/mkkb/wxbuild@linux_compatibility"
 
-
-#--------------------------------------------------------------------#
-# Copy ssh read key
-#--------------------------------------------------------------------#
-cp guiwoodpecker_read_key $HOME/.shh/guiwoodpecker_read_key
