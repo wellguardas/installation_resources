@@ -1,11 +1,13 @@
 #!/bin/bash
 
 #--------------------------------------------------------------------#
-# Copy ssh read key
+# Copy ssh read key and add to ssh-agent
 #--------------------------------------------------------------------#
 basedir=$(dirname "$0")
 cp $basedir/guiwoodpecker_read_key $HOME/.ssh/guiwoodpecker_read_key
 chmod 600 $HOME/.ssh/guiwoodpecker_read_key
+eval 'ssh-agent'
+ssh-add $HOME/.ssh/guiwoodpecker_read_key
 
 
 #--------------------------------------------------------------------#
@@ -68,7 +70,8 @@ cd $installation_path
 #--------------------------------------------------------------------#
 # Clone repository from GitLab
 #--------------------------------------------------------------------#
-git clone "https://gitlab.com/WellGuard_AS/guiwoodpecker.git"
+#git clone "https://gitlab.com/WellGuard_AS/guiwoodpecker.git"
+git clone "git@gitlab.com:WellGuard_AS/guiwoodpecker.git"
 
 
 #--------------------------------------------------------------------#
