@@ -21,6 +21,7 @@ else
     conda_folder="miniconda3"
   else
     conda_folder="anaconda3"
+  fi
 
   source "$HOME/$conda_folder/etc/profile.d/conda.sh"
   f_output_nested=$('conda')
@@ -91,3 +92,9 @@ fi
 echo "Reinstalling wxbuild"
 pip uninstall wxbuild -y
 pip install "git+https://github.com/mkkb/wxbuild@linux_compatibility"
+
+
+#--------------------------------------------------------------------#
+# Copy ssh read key
+#--------------------------------------------------------------------#
+cp guiwoodpecker_read_key $HOME/.shh/guiwoodpecker_read_key
