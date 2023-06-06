@@ -6,7 +6,8 @@
 basedir=$(dirname "$0")
 cp $basedir/guiwoodpecker_read_key $HOME/.ssh/guiwoodpecker_read_key
 chmod 600 $HOME/.ssh/guiwoodpecker_read_key
-eval 'ssh-agent'
+#eval 'ssh-agent'
+eval $(ssh-agent)
 ssh-add $HOME/.ssh/guiwoodpecker_read_key
 
 
