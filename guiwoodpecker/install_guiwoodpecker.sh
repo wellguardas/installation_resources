@@ -4,7 +4,7 @@
 # Copy ssh read key
 #--------------------------------------------------------------------#
 basedir=$(dirname "$0")
-cp $basedir/guiwoodpecker_read_key $HOME/.shh/guiwoodpecker_read_key
+cp $basedir/guiwoodpecker_read_key $HOME/.ssh/guiwoodpecker_read_key
 
 
 #--------------------------------------------------------------------#
