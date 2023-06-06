@@ -16,7 +16,13 @@ SUB="usage: conda"
 if [[ "$f_output" == *"$SUB"* ]]; then
   echo 'Conda found'
 else
-  source $HOME/miniconda3/etc/profile.d/conda.sh
+  if [ -d "$HOME/miniconda3/" ]
+  then
+    conda_folder="miniconda3"
+  else
+    conda_folder="anaconda3"
+
+  source "$HOME/$conda_folder/etc/profile.d/conda.sh"
   f_output_nested=$('conda')
   if [[ "$f_output_nested" == *"$SUB"* ]]; then
     echo 'Conda found'
@@ -85,9 +91,3 @@ fi
 echo "Reinstalling wxbuild"
 pip uninstall wxbuild -y
 pip install "git+https://github.com/mkkb/wxbuild@linux_compatibility"
-
-
-#source $HOME/miniconda3/etc/profile.d/conda.sh
-# cd ..
-# conda env create -f "environment.yml"
-# source shell_scripts/update_wxbuild_package.sh
